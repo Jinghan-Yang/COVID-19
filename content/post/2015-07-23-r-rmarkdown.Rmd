@@ -1,10 +1,10 @@
 ---
-title: "Young people is the key to slow down the spread of COVID-19 in Toronto"
+title: "Young people are the key to slow down the spread of COVID-19 in Toronto"
 author: "Jinghan Yang"
 date: 2020-09-20T21:13:14-05:00
 references: "references.bib"
 categories: ["R"]
-tags: ["Abstract", "Introduction", "Plot"]
+tags: ["Abstract", "Introduction", "A plot of age distribution of confirmed cases of COVID-19 in Toronto"]
 ---
 
 ```{r setup, include=FALSE}
@@ -17,9 +17,9 @@ library(dplyr)
 
 # Abstract
 
-Coronavirus has become a global health crisis, affecting 213 counties and more than 30 million people worldwide(Henrik Pettersson, Byron Manley and Sergio Hernandez, 2020). To further investigate how individuals from different age groups are affected by the coronavirus, we explored the data set of “COVID-19 Cases in Toronto” downloaded from the Toronto Open Data Portal. Surprisingly, we discovered that the age group of 20-29 years old, an age group that is generally considered to have the most robust immune system (Pagán, 2016), has the most confirmed cases of COVID-19. Such a finding may suggest that the healthcare regulatory agency may have to establish more countermeasures to slow down the spread of COVID-19 among young people.
+COVID-19 has become a global health crisis, affecting 213 counties and more than 30 million people worldwide (Henrik Pettersson, Byron Manley and Sergio Hernandez, 2020). To further investigate how individuals from different age groups are affected by the coronavirus, we explored the data set of “COVID-19 Cases in Toronto” downloaded from the Toronto Open Data Portal. Surprisingly, we discovered that the age group of 20-29 year-olds, an age group that is generally considered to have the most robust immune system (Pagán, 2016), has the most confirmed cases of COVID-19. Such a finding may suggest that the healthcare regulatory agency may have to establish more countermeasures to slow down the spread of COVID-19 among young people.
 
-```{r}
+```{r,echo=FALSE, message=FALSE, warning=FALSE, results = FALSE}
 install.packages("opendatatoronto")
 library(opendatatoronto)
 
@@ -38,37 +38,37 @@ covid_statistics
 
 # Introduction
 
-According to the most up-to-date data released by the Canadian healthcare authority, Ontario is a major epidemic province with 46,484 confirmed cases of COVID-19, only second to Quebec, which has 6,7080 confirmed cases (Government of Canada, 2020). Toronto, the economic center in Ontario, has 17259 confirmed cases, more than one-third of the total number of cases confirmed provincially (City of Toronto, 2020). Therefore, this global pandemic has significantly affected Toronto in various aspects. Hoping to gain more insights into the current situation of COVID-19 in Toronto, we analyzed the data set of “COVID-19 Cases in Toronto” from the Toronto Open Data Portal, especially the age distribution of confirmed cases. Namely, the variable of interest in our analysis is the age group of confirmed cases. We discovered that younger people had suffered the most from the COVID-19, while the age group of people between 70-79 years old has the lowest number of confirmed cases.
+According to the most up-to-date data released by the Canadian healthcare authority, Ontario is a significantly impacted province with 46,484 confirmed cases of COVID-19, second only to Quebec, which has 67,080 confirmed cases (Government of Canada, 2020). Toronto, the economic center of Ontario, has 17,259 confirmed cases, more than one-third of the total number of cases confirmed provincially (City of Toronto, 2020). Therefore, this global pandemic has seriously affected Toronto in various aspects. Hoping to gain more insights into the current situation of COVID-19 in Toronto, we analyzed the data set “COVID-19 Cases in Toronto” from the Toronto Open Data Portal, especially the age distribution of confirmed cases. Namely, the variable of interest in our analysis is the age group of confirmed cases. We discovered that younger people had suffered the most from the COVID-19, while the age group of people between 70-79 years old has the lowest number of confirmed cases.
 
-The data set of "COVID-19 Cases in Toronto" contains 16,942 observations, with each unit of observation indicates a specific case of COVID-19 in Toronto. Each observation is associated with 18 variables, including information of the confirmed case's age group, source of infection, episode date, gender, whether he/she is currently hospitalized, etc. To better evaluate how individuals from different age groups are affected by the coronavirus, we counted the number of confirmed cases within each age group, sorted the result in descending order to make a bar chart to visualize the current situation. Notice that young people and middle-ages tend to suffer more from the COVID-19, as shown by the bar chart below. Specifically, the age group of 20-29 years old has the largest number of confirmed cases of COVID-19, amounting to 2,714. The other three age groups that have more than 2000 confirmed cases are all consisted of middle-ages:
+The data set of “COVID-19 Cases in Toronto” contains 16,942 observations, with each unit of observation indicating a specific case of COVID-19 in Toronto. Each observation is associated with 18 variables, including information of the confirmed case’s age group, source of infection, episode date, gender, whether he/she is currently hospitalized, etc. To better evaluate how individuals from different age groups are affected by the coronavirus, we counted the number of confirmed cases within each age group and sorted the result in descending order to create a bar chart to visualize the current situation. Notice that young and middle-aged people tend to suffer more from the COVID-19, as shown by Figure 1 below. Specifically, the age group of 20-29 year-olds has the largest number of confirmed cases of COVID-19, amounting to 2714. The other three age groups that have more than 2000 confirmed cases are all consisted of middle-aged:
 
-•	2,616 cases for people who are 50-59 years old
+•          2,616 cases for people who are 50-59 years old
 
-•	2,519 cases for people who are 30-39 years old
+•          2,519 cases for people who are 30-39 years old
 
-•	2,325 cases for people who are 40-49 years old
+•          2,325 cases for people who are 40-49 years old
 
-Surprisingly, there are only 3,772 confirmed cases in the age group of people who are more than 70 years old. After further calculation, we found that people who are more than 70 years and affected by the COIVD-19 only account for approximately 22% of the entire population - the 16,942 confirmed cases in Toronto. Such a finding is unexpected because older people tend to have a weak immune system, meaning that they should be more significantly affected by the coronavirus (Pagán, 2016). 
+Surprisingly, there are only 3,772 confirmed cases in the age group of more than 70 years old. After further calculations, we found that people aged 70 years and above only account for approximately 22% of the population of all 16,942 confirmed cases in Toronto. Such a finding is unexpected because older people tend to have a weak immune system, meaning that they should be more significantly affected by the coronavirus (Pagán, 2016).
 
-```{r}
+The founding above suggests that young people, especially people between 20 to 29, are the driving force of this pandemic in Toronto. Therefore, the healthcare regulatory agency should allocate more resources and establish a more concrete countermeasure to prevent the spread of the COVID-19 among young people. However, the above suggestion has some potential weaknesses. First, the ideal target population - population intended to be investigated - in our analysis should be all confirmed cases of COVID-19 in Toronto. Unfortunately, It is possible that some older people who are affected by the coronavirus did not go to the hospital, thus making the confirmed cases of older people smaller than what it should be. Second, our analysis is potentially vulnerable because we derived the recommendation that young people are the key to slow down the spread of COVID-19 in Toronto based on past data, which may cause the issue of extrapolation - using past data to predict the future trend. It is possible that that the rate of newly discovered cases of COVID-19 among the age group of 20-29 years old is significantly lower than that of older people, thus making our recommendation open to doubt. Last, many news articles indicate that young people, especially college students, still gather and party, ignoring the current measure to slow down the coronavirus (Artuso, 2020). Therefore, our suggestion for the healthcare authority to put more restrictions on young people may be hard to carry out. Later in this paper, we will try to separate the college students from the age group of 20-29 to investigate whether they account for a significant portion of the corresponding age group, thus evaluating whether the healthcare authority must enforce stricter measures on the college student.
+
+```{r,echo=FALSE, message=FALSE, warning=FALSE}
 age <- covid_statistics %>%
     group_by(`Age Group`) %>%
     summarise(count = n()) %>%
     top_n(n = 10, wt = count) %>%
     arrange(desc(count))
 ```
-# Including Plots
+# A plot of age distribution of confirmed cases of COVID-19 in Toronto
 
-```{r}
+```{r,echo=FALSE}
 ggplot(data=age, aes(x=reorder(`Age Group`,-count), y=count, fill=count)) +
     geom_bar(colour="black", stat="identity") +
-     theme(text = element_text(size=8),
+     theme(text = element_text(size=12),
         axis.text.x = element_text(angle=90, hjust=1)) +
-    ggtitle("Plot of age distribution of confirmed cases of COVID-19 in Toronto") +
+    ggtitle("Figure 1: Age distribution of confirmed cases of COVID-19 in Toronto") +
     xlab("age group") + ylab("number of confirmed cases")
 ```
-
-The founding above suggests that young people, especially people between 20 to 29, are the driving force of this pandemic in Toronto. Therefore, the healthcare regulatory agency should allocate more resources and establish a more concrete countermeasure to prevent the spread of the COVID-19 among young people. However, the above suggestion has some potential weaknesses. First, the ideal target population - population intended to be investigated - in our analysis should be all confirmed cases of COVID-19 in Toronto. Unfortunately, It is possible that some older people who are affected by the coronavirus did not go to the hospital, thus making the confirmed cases of older people smaller than what it should be. Second, many news articles indicate that young people, especially college students, still gather and party, ignoring the current measure to slow down the coronavirus (Artuso, 2020). Therefore, our suggestion for the healthcare authority to put more restrictions on young people may be hard to carry out. Later in this paper, we will separate the college students from the age group of 20-29 to investigate whether they account for a significant portion of the corresponding age group, thus evaluating whether the healthcare authority must enforce stricter measures on the college student.
 
 # References
 Artuso, A. (2020, July 21). Young adults contracting COVID-19 at parties: Officials. Retrieved September 20, 2020, from https://torontosun.com/news/provincial/young-adults-getting-covid-19-at-parties-officials
@@ -89,14 +89,9 @@ Yihui Xie (2020). blogdown: Create Blogs and Websites with R Markdown. R package
 
 Yihui Xie, Alison Presmanes Hill, and Amber Thomas (2017). blogdown: Creating Websites with R Markdown. Chapman and Hall/CRC. ISBN 978-0815363729
 
-@Manual{,
-    title = {R: A Language and Environment for Statistical Computing},
-    author = {{R Core Team}},
-    organization = {R Foundation for Statistical Computing},
-    address = {Vienna, Austria},
-    year = {2020},
-    url = {https://www.R-project.org/},
-}
+R Core Team (2020). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.
+
+Wickham et al., (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686, https://doi.org/10.21105/joss.01686
 
 
 
