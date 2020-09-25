@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R on Jinghan&#39;s website</title>
-    <link>/categories/r/</link>
-    <description>Recent content in R on Jinghan&#39;s website</description>
+    <title>Appendix on Jinghan&#39;s website</title>
+    <link>/tags/appendix/</link>
+    <description>Recent content in Appendix on Jinghan&#39;s website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Sep 2020 21:13:14 -0500</lastBuildDate><atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Sep 2020 21:13:14 -0500</lastBuildDate><atom:link href="/tags/appendix/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Young people are the key to slow down the spread of COVID-19 in Toronto</title>
       <link>/2020/09/20/young-people-are-the-key-to-slow-down-the-spread-of-covid-19-in-toronto/</link>

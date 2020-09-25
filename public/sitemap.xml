@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/tags/a-plot-of-age-distribution-of-confirmed-cases-of-covid-19-in-toronto/</loc>
-    <lastmod>2020-09-20T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/abstract/</loc>
     <lastmod>2020-09-20T21:13:14-05:00</lastmod>
   </url>
   
   <url>
+    <loc>/tags/appendix/</loc>
+    <lastmod>2020-09-20T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
+    <lastmod>2020-09-20T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/data-analysis/</loc>
     <lastmod>2020-09-20T21:13:14-05:00</lastmod>
   </url>
   
@@ -33,12 +38,27 @@
   </url>
   
   <url>
+    <loc>/tags/quantitaive-analysis/</loc>
+    <lastmod>2020-09-20T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/categories/r/</loc>
     <lastmod>2020-09-20T21:13:14-05:00</lastmod>
   </url>
   
   <url>
+    <loc>/tags/reference/</loc>
+    <lastmod>2020-09-20T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/</loc>
+    <lastmod>2020-09-20T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/weaknesses-and-next-step/</loc>
     <lastmod>2020-09-20T21:13:14-05:00</lastmod>
   </url>
   
