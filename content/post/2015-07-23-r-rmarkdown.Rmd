@@ -47,6 +47,17 @@ According to the most up-to-date data released by the Canadian healthcare author
 
 The data set of “COVID-19 Cases in Toronto” contains 16,942 observations, with each unit of observation indicating a specific case of COVID-19 in Toronto. Each observation is associated with 18 variables, including information of the confirmed case’s age group, source of infection, episode date, gender, whether he/she is currently hospitalized, etc. Given that our research question is how individuals from different age groups are affected by the coronavirus, the variable of interest in our analysis is the age group of confirmed cases. This variable of age group indicates the age of each confirmed case at the time of illness. More specifically, it is a categorical variable, which represents data that are divided into groups. In our case, this variable of age group can take on ten different values: 0-19, 20-29, 30-39, 40-49, 50-59, 60-69, 70-79, 80-89, 90+ and unknown.
 
+Below is a table showing number of confirmed cases in each age group:
+```{r,echo=FALSE, message=FALSE, warning=FALSE}
+age <- covid_statistics %>%
+    group_by(`Age Group`) %>% #group data by the variable of age age
+    summarise(count = n()) %>% #count the number of confirmed cases in each age group
+    top_n(n = 10, wt = count) %>%
+    arrange(desc(count)) #arrange the result by a descending order
+ 
+age   
+```
+
 # Quantitative analysis
 
 To better evaluate how individuals from different age groups are affected by the coronavirus, we counted the number of confirmed cases within each age group and sorted the result in descending order to create a bar chart to visualize the current situation. Notice that young and middle-aged people tend to suffer more from the COVID-19, as shown by Figure 1 below. Specifically, the age group of 20-29 year-olds has the largest number of confirmed cases of COVID-19, amounting to 2714. The other three age groups that have more than 2000 confirmed cases are all consisted of middle-aged:
@@ -59,13 +70,6 @@ To better evaluate how individuals from different age groups are affected by the
 
 Surprisingly, there are only 3,772 confirmed cases in the age group of more than 70 years old. After further calculations, we found that people aged 70 years and above only account for approximately 22% of the population of all 16,942 confirmed cases in Toronto. Such a finding is unexpected because older people tend to have a weak immune system, meaning that they should be more significantly affected by the coronavirus (Pagán, 2016).
 
-```{r,echo=FALSE, message=FALSE, warning=FALSE}
-age <- covid_statistics %>%
-    group_by(`Age Group`) %>% #group data by the variable of age age
-    summarise(count = n()) %>% #count the number of confirmed cases in each age group
-    top_n(n = 10, wt = count) %>%
-    arrange(desc(count)) #arrange the result by a descending order
-```
 ```{r,echo=FALSE}
 #graph the age distribution of confirmed cases
 ggplot(data=age, aes(x=reorder(`Age Group`,-count), y=count, fill=count)) +
@@ -73,12 +77,12 @@ ggplot(data=age, aes(x=reorder(`Age Group`,-count), y=count, fill=count)) +
      theme(text = element_text(size=12),
         axis.text.x = element_text(angle=90, hjust=1)) +
     ggtitle("Figure 1: Age distribution of confirmed cases of COVID-19 in Toronto") +
-    xlab("age group") + ylab("number of confirmed cases")
+    xlab("age group") + ylab("number of confirmed cases(unit: cases)")
 ```
 
 # Weaknesses and next step
 
-The founding above suggests that young people, especially people between 20 to 29, are the driving force of this pandemic in Toronto. Therefore, the healthcare regulatory agency should allocate more resources and establish a more concrete countermeasure to prevent the spread of the COVID-19 among young people. However, the above suggestion has some potential weaknesses. First, the ideal target population - population intended to be investigated - in our analysis should be all confirmed cases of COVID-19 in Toronto. Unfortunately, It is possible that some older people who are affected by the coronavirus did not go to the hospital, thus making the confirmed cases of older people smaller than what it should be. Second, our analysis is potentially vulnerable because we derived the recommendation that young people are the key to slow down the spread of COVID-19 in Toronto based on past data, which may cause the issue of extrapolation - using past data to predict the future trend. The future rate of newly discovered cases of COVID-19 among the age group of 20-29 years old may be significantly lower than that of older people, thus making our recommendation open to doubt. Last, many news articles indicate that young people, especially college students, still gather and party, ignoring the current measure to slow down the coronavirus (Artuso, 2020). Therefore, our suggestion for the healthcare authority to put more restrictions on young people may be hard to carry out. To further investigate the validity of our recommendation, the next step is to try to separate the college students from the age group of 20-29 to study whether they account for a significant portion of the corresponding age group, thus evaluating whether the healthcare authority must enforce stricter measures on the college student. 
+The founding above suggests that young people, especially people between 20 to 29, are the driving force of this pandemic in Toronto. Therefore, the healthcare regulatory agency should allocate more resources and establish a more concrete countermeasure to prevent the spread of the COVID-19 among young people. However, the above suggestion has some potential weaknesses. First, the ideal target population - population intended to be investigated - in our analysis should be all confirmed cases of COVID-19 in Toronto. Unfortunately, It is possible that some older people who are affected by the coronavirus did not go to the hospital, thus making the confirmed cases of older people smaller than what it should be. Second, our analysis is potentially vulnerable because we derived the recommendation that young people are the key to slow down the spread of COVID-19 in Toronto based on past data, which may cause the issue of extrapolation - using past data to predict the future trend. The future rate of newly discovered cases of COVID-19 in the age group of 20-29 years old may be significantly lower than that of older people, thus making our recommendation open to doubt. Last, many news articles indicate that young people, especially college students, still gather and party, ignoring the current measure to slow down the coronavirus (Artuso, 2020). Therefore, our suggestion for the healthcare authority to put more restrictions on young people might be hard to carry out. To further investigate the validity of our recommendation, the next step is to try to separate the college students from the age group of 20-29 to study whether they account for a significant portion of the confirmed cases in the corresponding age group, thus evaluating whether the healthcare authority must enforce stricter measures on the college student. 
 
 # References
 
@@ -139,12 +143,13 @@ covid_statistics <- covid_resources %>%
 
 covid_statistics
 ```
-```{r, message=FALSE, warning=FALSE, results = FALSE}
+```{r message=FALSE, warning=FALSE, results=FALSE}
 age <- covid_statistics %>%
     group_by(`Age Group`) %>% #group data by the variable of age age
     summarise(count = n()) %>% #count the number of confirmed cases in each age group
     top_n(n = 10, wt = count) %>%
     arrange(desc(count)) #arrange the result by a descending order
+age
 ```
 ```{r, message=FALSE, warning=FALSE, results = FALSE}
 #graph the age distribution of confirmed cases
@@ -153,7 +158,7 @@ ggplot(data=age, aes(x=reorder(`Age Group`,-count), y=count, fill=count)) +
      theme(text = element_text(size=12),
         axis.text.x = element_text(angle=90, hjust=1)) +
     ggtitle("Figure 1: Age distribution of confirmed cases of COVID-19 in Toronto") +
-    xlab("age group") + ylab("number of confirmed cases")
+    xlab("age group") + ylab("number of confirmed cases(unit: cases)")
 ```
 
 

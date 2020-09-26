@@ -1,6 +1,7 @@
 baseurl = "/"
 languageCode = "en-us"
 title = "Jinghan's website"
+author = "Jinghan Yang"
 theme = "hugo-lithium"
 googleAnalytics = ""
 disqusShortname = ""
@@ -14,10 +15,10 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     url = "/about/"
 [[menu.main]]
     name = "GitHub"
-    url = "https://github.com/rstudio/blogdown"
+    url = "https://github.com/Jinghan-Yang/COVID-19"
 [[menu.main]]
-    name = "Twitter"
-    url = "https://twitter.com/rstudio"
+    name = "Author"
+    url = "https://www.linkedin.com/in/jinghan-will-yang-b0792618b/"
 
 [params]
     description = "A website built through Hugo and blogdown."
